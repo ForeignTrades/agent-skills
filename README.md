@@ -73,6 +73,20 @@ production-debugger/
 
 The frontmatter `description` is what Claude reads to decide *when* to use the skill; the body is *how* — workflow, required output structure, and principles. Edit any `SKILL.md` to tune the behavior to your taste.
 
+## Using with other AI tools
+
+The `SKILL.md` format and automatic triggering are Claude-specific, but each skill's body is plain markdown instructions — so the content ports easily to other tools. Copy everything below the frontmatter (the `---` block) and drop it in:
+
+| Tool | Where to put it |
+|---|---|
+| **Cursor** | A Project Rule — create `.cursor/rules/<skill-name>.mdc`, use the skill's `description` as the rule description and the body as the rule content |
+| **GitHub Copilot** | `.github/copilot-instructions.md` in your repo |
+| **Windsurf** | `.windsurf/rules/` or your `AGENTS.md` |
+| **Aider** | `CONVENTIONS.md` or load via `--read` |
+| **ChatGPT / Gemini / others** | Paste the body as a system prompt or custom instruction |
+
+What you lose outside Claude is on-demand loading and automatic triggering from natural phrases ("fix this bug" → production-debugger). In other tools the instructions are either always-on or manually invoked, so it's best to add only the one or two skills that match your current task rather than all eight at once.
+
 ## Contributing
 
 PRs welcome. Keep skills focused (one strategy per skill), keep `SKILL.md` under ~500 lines, write trigger-rich descriptions, and prefer explaining *why* over rigid MUSTs.
