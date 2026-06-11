@@ -27,7 +27,7 @@ Copy the skill folders into your skills directory:
 
 ```bash
 # Personal (all projects)
-git clone https://github.com/YOUR_USERNAME/agent-skills.git
+git clone https://github.com/ForeignTrades/agent-skills.git
 cp -r agent-skills/*/ ~/.claude/skills/
 
 # Or per-project
